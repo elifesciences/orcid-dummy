@@ -1,9 +1,11 @@
+// TODO: could be separated into `develop` and `master`
+// with merge upon passing tests
 elifeLibrary {
     stage 'Checkout', {
         checkout scm
     }
 
-    elifeVariants(['lowest', 'default'], { dependencies ->
-        elifeLocalTests "dependencies=${dependencies} ./project_tests.sh", ["build/${dependencies}-phpunit.xml"]
-    })
+    stage 'Project tests', {
+        elifeLocalTests "./project_tests.sh", ["build/${dependencies}-phpunit.xml"]
+    }
 }
