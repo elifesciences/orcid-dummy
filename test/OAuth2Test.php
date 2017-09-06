@@ -65,8 +65,8 @@ final class OAuth2Test extends PHPUnit_Framework_TestCase
                 'refresh_token' => 'refresh_token_code_unique_string',
                 'expires_in' => 30 * 24 * 60 * 60,
                 'scope' => '/authenticate',
-                'orcid' => '0000-0001-2345-6789',
-                'name' => 'Jon Osterman',
+                'orcid' => '0000-0002-1825-0097',
+                'name' => 'Josiah Carberry'
             ],
             json_decode($response->getContent(), true)
         );

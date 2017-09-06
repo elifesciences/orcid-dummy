@@ -48,8 +48,8 @@ $app->post('/oauth2/token', function (Request $request) {
         'refresh_token' => 'refresh_token_'.$code,
         'expires_in' => 30 * 24 * 60 * 60,
         'scope' => '/authenticate',
-        'orcid' => '0000-0001-2345-6789',
-        'name' => 'Jon Osterman',
+        'orcid' => '0000-0002-1825-0097',
+        'name' => 'Josiah Carberry',
     ]);
 });
 
@@ -59,9 +59,10 @@ $app->error(function (Throwable $e) {
     } else {
         $status = 500;
     }
-
-    return new Response(
-        json_encode(['message' => $e->getMessage()], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES),
+    return new JsonResponse(
+        [
+            'message' => $e->getMessage(),
+        ],
         $status
     );
 });
