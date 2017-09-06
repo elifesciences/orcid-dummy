@@ -5,7 +5,7 @@ namespace test\eLife\Orcid;
 use PHPUnit_Framework_TestCase;
 use Symfony\Component\HttpFoundation\Request;
 
-final class Oauth2Test extends PHPUnit_Framework_TestCase
+final class OAuth2Test extends PHPUnit_Framework_TestCase
 {
     use SilexTestCase;
 
@@ -66,7 +66,7 @@ final class Oauth2Test extends PHPUnit_Framework_TestCase
                 'expires_in' => 30 * 24 * 60 * 60,
                 'scope' => '/authenticate',
                 'orcid' => '0000-0001-2345-6789',
-                'name' => 'Jon Osterman'
+                'name' => 'Jon Osterman',
             ],
             json_decode($response->getContent(), true)
         );
