@@ -3,9 +3,7 @@
 namespace test\eLife\Orcid;
 
 use PHPUnit_Framework_TestCase;
-use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpFoundation\Request;
-use Traversable;
 
 final class PingTest extends PHPUnit_Framework_TestCase
 {
