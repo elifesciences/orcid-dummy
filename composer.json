@@ -1,5 +1,5 @@
 {
-    "name": "elife/dummy-api",
+    "name": "elife/dummy-orcid",
     "type": "project",
     "license": "MIT",
     "autoload": {
