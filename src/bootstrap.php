@@ -59,6 +59,7 @@ $app->error(function (Throwable $e) {
     } else {
         $status = 500;
     }
+
     return new JsonResponse(
         [
             'message' => $e->getMessage(),
