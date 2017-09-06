@@ -1,0 +1,26 @@
+<?php
+
+namespace test\eLife\Orcid;
+
+use PHPUnit_Framework_TestCase;
+use Symfony\Component\Finder\Finder;
+use Symfony\Component\HttpFoundation\Request;
+use Traversable;
+
+final class PingTest extends PHPUnit_Framework_TestCase
+{
+    use SilexTestCase;
+
+    /**
+     * @test
+     */
+    public function it_can_be_pinged()
+    {
+        $response = $this->getApp()->handle(Request::create('/ping'));
+
+        $this->assertSame(200, $response->getStatusCode());
+        $this->assertSame('pong', $response->getContent());
+        $this->assertSame('text/plain; charset=UTF-8', $response->headers->get('Content-Type'));
+        $this->assertSame('must-revalidate, no-cache, no-store, private', $response->headers->get('Cache-Control'));
+    }
+}
