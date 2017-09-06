@@ -2,6 +2,7 @@
 
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
@@ -24,8 +25,8 @@ $app->get('ping', function () {
 });
 
 $app->get('/oauth2/authorize', function(Request $request) {
-    $redirectUri = $request->query->get('redirect_uri');
-    $state = $request->query->get('state');
+    $redirectUri = $request->get('redirect_uri');
+    $state = $request->get('state');
     $code = 'code_'.$state;
     $location = $redirectUri.'?'.http_build_query([
         'code' => $code,
@@ -38,6 +39,20 @@ $app->get('/oauth2/authorize', function(Request $request) {
             'Location' => $location,
         ]
     );
+});
+
+
+$app->post('/oauth2/token', function(Request $request) {
+    $code = $request->get('code');
+    return new JsonResponse([
+        'access_token' => 'access_token_'.$code,
+        'token_type' => 'bearer',
+        'refresh_token' => 'refresh_token_'.$code,
+        'expires_in' => 30 * 24 * 60 * 60,
+        'scope' => '/authenticate',
+        'orcid' => '0000-0001-2345-6789',
+        'name' => 'Jon Osterman'
+    ]);
 });
 
 $app->error(function (Throwable $e) {
