@@ -45,7 +45,7 @@ $app->post('/oauth2/token', function (Request $request) {
     return new JsonResponse([
         'access_token' => 'access_token_'.$code,
         'token_type' => 'bearer',
-        'refresh_token' => 'refresh_token_'.$code,
+        #'refresh_token' => 'refresh_token_'.$code,
         'expires_in' => 30 * 24 * 60 * 60,
         'scope' => '/authenticate',
         'orcid' => '0000-0002-1825-0097',
