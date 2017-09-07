@@ -6,6 +6,6 @@ elifeLibrary {
     }
 
     stage 'Project tests', {
-        elifeLocalTests "./project_tests.sh", ["build/${dependencies}-phpunit.xml"]
+        elifeLocalTests "./project_tests.sh", ["build/phpunit.xml"]
     }
 }
