@@ -62,7 +62,7 @@ final class OAuth2Test extends PHPUnit_Framework_TestCase
             [
                 'access_token' => 'access_token_code_unique_string',
                 'token_type' => 'bearer',
-                #'refresh_token' => 'refresh_token_code_unique_string',
+                //'refresh_token' => 'refresh_token_code_unique_string',
                 'expires_in' => 30 * 24 * 60 * 60,
                 'scope' => '/authenticate',
                 'orcid' => '0000-0002-1825-0097',
