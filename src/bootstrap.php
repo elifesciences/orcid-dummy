@@ -10,7 +10,7 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 $app = new Application();
 
-$app->get('ping', function () {
+$app->get('/ping', function () {
     return new Response(
         'pong',
         Response::HTTP_OK,
