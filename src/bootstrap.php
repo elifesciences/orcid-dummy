@@ -55,61 +55,144 @@ $app->post('/oauth2/token', function (Request $request) {
 
 $app->get('/api/v2.0/0000-0002-1825-0097/record', function (Request $request) {
     $body = <<<'EOT'
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<record:record path="/0000-0002-1825-0097" xmlns:internal="http://www.orcid.org/ns/internal" xmlns:funding="http://www.orcid.org/ns/funding" xmlns:preferences="http://www.orcid.org/ns/preferences" xmlns:address="http://www.orcid.org/ns/address" xmlns:education="http://www.orcid.org/ns/education" xmlns:work="http://www.orcid.org/ns/work" xmlns:deprecated="http://www.orcid.org/ns/deprecated" xmlns:other-name="http://www.orcid.org/ns/other-name" xmlns:history="http://www.orcid.org/ns/history" xmlns:employment="http://www.orcid.org/ns/employment" xmlns:error="http://www.orcid.org/ns/error" xmlns:common="http://www.orcid.org/ns/common" xmlns:person="http://www.orcid.org/ns/person" xmlns:activities="http://www.orcid.org/ns/activities" xmlns:record="http://www.orcid.org/ns/record" xmlns:researcher-url="http://www.orcid.org/ns/researcher-url" xmlns:peer-review="http://www.orcid.org/ns/peer-review" xmlns:personal-details="http://www.orcid.org/ns/personal-details" xmlns:bulk="http://www.orcid.org/ns/bulk" xmlns:keyword="http://www.orcid.org/ns/keyword" xmlns:email="http://www.orcid.org/ns/email" xmlns:external-identifier="http://www.orcid.org/ns/external-identifier">
-    <common:orcid-identifier>
-        <common:uri>http://sandbox.orcid.org/0000-0002-1825-0097</common:uri>
-        <common:path>0000-0002-1825-0097</common:path>
-        <common:host>sandbox.orcid.org</common:host>
-    </common:orcid-identifier>
-    <preferences:preferences>
-        <preferences:locale>en</preferences:locale>
-    </preferences:preferences>
-    <history:history>
-        <history:creation-method>Direct</history:creation-method>
-        <history:submission-date>2017-10-05T09:01:04.543Z</history:submission-date>
-        <common:last-modified-date>2017-10-05T09:14:59.315Z</common:last-modified-date>
-        <history:claimed>true</history:claimed>
-        <history:verified-email>false</history:verified-email>
-        <history:verified-primary-email>false</history:verified-primary-email>
-    </history:history>
-    <person:person path="/0000-0002-1825-0097/person">
-        <person:name visibility="public" path="0000-0002-1825-0097">
-            <common:created-date>2017-10-05T09:01:04.543Z</common:created-date>
-            <common:last-modified-date>2017-10-05T09:01:04.768Z</common:last-modified-date>
-            <personal-details:given-names>Josiah</personal-details:given-names>
-            <personal-details:family-name>Carberry</personal-details:family-name>
-        </person:name>
-        <other-name:other-names path="/0000-0002-1825-0097/other-names"/>
-        <researcher-url:researcher-urls path="/0000-0002-1825-0097/researcher-urls"/>
-        <email:emails path="/0000-0002-1825-0097/email">
-            <common:last-modified-date>2017-10-05T09:01:04.768Z</common:last-modified-date>
-            <email:email visibility="limited" verified="true" primary="true">
-                <common:created-date>2017-10-05T09:01:04.768Z</common:created-date>
-                <common:last-modified-date>2017-10-05T09:01:04.768Z</common:last-modified-date>
-                <common:source>
-                    <common:source-orcid>
-                        <common:uri>http://sandbox.orcid.org/0000-0002-1825-0097</common:uri>
-                        <common:path>0000-0002-1825-0097</common:path>
-                        <common:host>sandbox.orcid.org</common:host>
-                    </common:source-orcid>
-                    <common:source-name>Josiah Carberry</common:source-name>
-                </common:source>
-                <email:email>j.carberry@orcid.org</email:email>
-            </email:email>
-		</email:emails> 
-        <address:addresses path="/0000-0002-1825-0097/address"/>
-        <keyword:keywords path="/0000-0002-1825-0097/keywords"/>
-        <external-identifier:external-identifiers path="/0000-0002-1825-0097/external-identifiers"/>
-    </person:person>
-    <activities:activities-summary path="/0000-0002-1825-0097/activities">
-        <activities:educations path="/0000-0002-1825-0097/educations"/>
-        <activities:employments path="/0000-0002-1825-0097/employments"/>
-        <activities:fundings path="/0000-0002-1825-0097/fundings"/>
-        <activities:peer-reviews path="/0000-0002-1825-0097/peer-reviews"/>
-        <activities:works path="/0000-0002-1825-0097/works"/>
-    </activities:activities-summary>
-</record:record>
+{
+  "path": "/0000-0002-1825-0097",
+  "activities-summary": {
+    "path": "/0000-0002-1825-0097/activities",
+    "works": {
+      "path": "/0000-0002-1825-0097/works",
+      "group": [],
+      "last-modified-date": null
+    },
+    "peer-reviews": {
+      "path": "/0000-0002-1825-0097/peer-reviews",
+      "group": [],
+      "last-modified-date": null
+    },
+    "fundings": {
+      "path": "/0000-0002-1825-0097/fundings",
+      "group": [],
+      "last-modified-date": null
+    },
+    "employments": {
+      "path": "/0000-0002-1825-0097/employments",
+      "employment-summary": [],
+      "last-modified-date": null
+    },
+    "educations": {
+      "path": "/0000-0002-1825-0097/educations",
+      "education-summary": [],
+      "last-modified-date": null
+    },
+    "last-modified-date": null
+  },
+  "person": {
+    "path": "/0000-0002-1825-0097/person",
+    "external-identifiers": {
+      "path": "/0000-0002-1825-0097/external-identifiers",
+      "external-identifier": [],
+      "last-modified-date": null
+    },
+    "last-modified-date": {
+      "value": 1507194064768
+    },
+    "name": {
+      "path": "0000-0002-1825-0097",
+      "visibility": "PUBLIC",
+      "source": null,
+      "credit-name": null,
+      "family-name": {
+        "value": "Carberry"
+      },
+      "given-names": {
+        "value": "Josiah"
+      },
+      "last-modified-date": {
+        "value": 1507194064768
+      },
+      "created-date": {
+        "value": 1507194064543
+      }
+    },
+    "other-names": {
+      "path": "/0000-0002-1825-0097/other-names",
+      "other-name": [],
+      "last-modified-date": null
+    },
+    "biography": null,
+    "researcher-urls": {
+      "path": "/0000-0002-1825-0097/researcher-urls",
+      "researcher-url": [],
+      "last-modified-date": null
+    },
+    "emails": {
+      "path": "/0000-0002-1825-0097/email",
+      "email": [
+        {
+          "put-code": null,
+          "created-date": {
+            "value": 1507194064768
+          },
+          "last-modified-date": {
+            "value": 1507194064768
+          },
+          "source": {
+            "source-name": {
+              "value": "Josiah Carberry"
+            },
+            "source-client-id": null,
+            "source-orcid": {
+              "host": "sandbox.orcid.org",
+              "path": "0000-0002-1825-0097",
+              "uri": "http://sandbox.orcid.org/0000-0002-1825-0097"
+            }
+          },
+          "email": "j.carberry@orcid.org",
+          "path": null,
+          "visibility": "LIMITED",
+          "verified": true,
+          "primary": true
+        }
+      ],
+      "last-modified-date": {
+        "value": 1507194064768
+      }
+    },
+    "addresses": {
+      "path": "/0000-0002-1825-0097/address",
+      "address": [],
+      "last-modified-date": null
+    },
+    "keywords": {
+      "path": "/0000-0002-1825-0097/keywords",
+      "keyword": [],
+      "last-modified-date": null
+    }
+  },
+  "history": {
+    "verified-primary-email": false,
+    "creation-method": "DIRECT",
+    "completion-date": null,
+    "submission-date": {
+      "value": 1507194064543
+    },
+    "last-modified-date": {
+      "value": 1507200680619
+    },
+    "claimed": true,
+    "source": null,
+    "deactivation-date": null,
+    "verified-email": false
+  },
+  "preferences": {
+    "locale": "EN"
+  },
+  "orcid-identifier": {
+    "host": "sandbox.orcid.org",
+    "path": "0000-0002-1825-0097",
+    "uri": "http://sandbox.orcid.org/0000-0002-1825-0097"
+  }
+}
 EOT;
 
     return new Response($body);
