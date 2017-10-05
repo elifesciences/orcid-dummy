@@ -21,21 +21,23 @@ final class RecordTest extends PHPUnit_Framework_TestCase
             $response->getStatusCode(),
             var_export($response->getContent(), true)
         );
-        $record = new \SimpleXMLElement($response->getContent());
-        $person = $record->children('person', true);
+        $record = json_decode($response->getContent(), true);
+        $person = $record['person'];
         $this->assertEquals(
             'Josiah',
-            $record->xpath('//person:person/person:name/personal-details:given-names')[0]
+            $person['name']['given-names']['value']
         );
         $this->assertEquals(
             'Carberry',
-             $record->xpath('//person:person/person:name/personal-details:family-name')[0]
+            $person['name']['family-name']['value']
         );
 
-        $email = $record->xpath('//person:person/email:emails/email:email')[0];
-        $this->assertEquals('limited', (string) $email->attributes()->visibility);
-        $this->assertEquals('true', (string) $email->attributes()->primary);
-        $this->assertEquals('true', (string) $email->attributes()->verified);
-        $this->assertEquals('j.carberry@orcid.org', $email->xpath('email:email')[0]);
+        $emails = $person['emails']['email'];
+        $this->assertCount(1, $emails);
+        $email = $emails[0];
+        $this->assertEquals('LIMITED', $email['visibility']);
+        $this->assertTrue($email['verified']);
+        $this->assertTrue($email['primary']);
+        $this->assertEquals('j.carberry@orcid.org', $email['email']);
     }
 }
