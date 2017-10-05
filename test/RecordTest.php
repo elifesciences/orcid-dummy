@@ -14,7 +14,7 @@ final class RecordTest extends PHPUnit_Framework_TestCase
      */
     public function it_provides_a_record_for_the_user()
     {
-        $response = $this->getApp()->handle(Request::create($a = '/api/v2.0/0000-0002-1285-0097/record'));
+        $response = $this->getApp()->handle(Request::create($a = '/api/v2.0/0000-0002-1825-0097/record'));
 
         $this->assertSame(
             200,
