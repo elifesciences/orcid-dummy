@@ -39,5 +39,22 @@ final class RecordTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($email['verified']);
         $this->assertTrue($email['primary']);
         $this->assertEquals('j.carberry@orcid.org', $email['email']);
+        $this->assertArrayHasKey('activities-summary', $record);
+        $this->assertArrayHasKey('employments', $record['activities-summary']);
+        $this->assertArrayHasKey('employment-summary', $record['activities-summary']['employments']);
+        $employments = $record['activities-summary']['employments']['employment-summary'];
+        $this->assertCount(1, $employments);
+        $employment = $employments[0];
+        $this->assertEquals('eLife Sciences Publications Ltd', $employment['organization']['name']);
+        $this->assertEquals(
+            [
+                'country' => 'GB',
+                'region' => 'Cambridgeshire',
+                'city' => 'Cambridge',
+            ],
+            $employment['organization']['address']
+        );
+        $this->assertNull($employment['end-date']);
+        $this->assertEquals('LIMITED', $employment['visibility']);
     }
 }

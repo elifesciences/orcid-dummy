@@ -75,9 +75,60 @@ $app->get('/api/v2.0/0000-0002-1825-0097/record', function (Request $request) {
       "last-modified-date": null
     },
     "employments": {
-      "path": "/0000-0002-1825-0097/employments",
-      "employment-summary": [],
-      "last-modified-date": null
+      "path": "/0000-0001-8778-8651/employments",
+      "employment-summary": [
+        {
+          "path": "/0000-0001-8778-8651/employment/28724",
+          "put-code": 28724,
+          "visibility": "LIMITED",
+          "created-date": {
+            "value": 1507638718479
+          },
+          "last-modified-date": {
+            "value": 1507638718479
+          },
+          "source": {
+            "source-name": {
+              "value": "Alfred Pennyworth"
+            },
+            "source-client-id": null,
+            "source-orcid": {
+              "host": "sandbox.orcid.org",
+              "path": "0000-0001-8778-8651",
+              "uri": "http://sandbox.orcid.org/0000-0001-8778-8651"
+            }
+          },
+          "department-name": null,
+          "role-title": "Robot",
+          "start-date": {
+            "day": {
+              "value": "01"
+            },
+            "month": {
+              "value": "01"
+            },
+            "year": {
+              "value": "1913"
+            }
+          },
+          "end-date": null,
+          "organization": {
+            "disambiguated-organization": {
+              "disambiguation-source": "RINGGOLD",
+              "disambiguated-organization-identifier": "385480"
+            },
+            "address": {
+              "country": "GB",
+              "region": "Cambridgeshire",
+              "city": "Cambridge"
+            },
+            "name": "eLife Sciences Publications Ltd"
+          }
+        }
+      ],
+      "last-modified-date": {
+        "value": 1507638718479
+      }
     },
     "educations": {
       "path": "/0000-0002-1825-0097/educations",
