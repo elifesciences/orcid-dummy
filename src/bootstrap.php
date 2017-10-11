@@ -1,5 +1,6 @@
 <?php
 
+use eLife\Ping\Silex\PingControllerProvider;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -10,16 +11,7 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 $app = new Application();
 
-$app->get('ping', function () {
-    return new Response(
-        'pong',
-        Response::HTTP_OK,
-        [
-            'Cache-Control' => 'must-revalidate, no-cache, no-store, private',
-            'Content-Type' => 'text/plain; charset=UTF-8',
-        ]
-    );
-});
+$app->register(new PingControllerProvider());
 
 $app->get('/oauth2/authorize', function (Request $request) {
     $redirectUri = $request->get('redirect_uri');
