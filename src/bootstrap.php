@@ -87,7 +87,7 @@ $app->get('/api/v2.0/0000-0002-1825-0097/record', function (Request $request) {
             "source-orcid": {
               "host": "sandbox.orcid.org",
               "path": "0000-0001-8778-8651",
-              "uri": "http://sandbox.orcid.org/0000-0001-8778-8651"
+              "uri": "https://sandbox.orcid.org/0000-0001-8778-8651"
             }
           },
           "department-name": null,
@@ -187,7 +187,7 @@ $app->get('/api/v2.0/0000-0002-1825-0097/record', function (Request $request) {
             "source-orcid": {
               "host": "sandbox.orcid.org",
               "path": "0000-0002-1825-0097",
-              "uri": "http://sandbox.orcid.org/0000-0002-1825-0097"
+              "uri": "https://sandbox.orcid.org/0000-0002-1825-0097"
             }
           },
           "email": "j.carberry@orcid.org",
@@ -233,7 +233,7 @@ $app->get('/api/v2.0/0000-0002-1825-0097/record', function (Request $request) {
   "orcid-identifier": {
     "host": "sandbox.orcid.org",
     "path": "0000-0002-1825-0097",
-    "uri": "http://sandbox.orcid.org/0000-0002-1825-0097"
+    "uri": "https://sandbox.orcid.org/0000-0002-1825-0097"
   }
 }
 EOT;
