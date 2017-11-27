@@ -9,10 +9,19 @@ final class RecordTest extends PHPUnit_Framework_TestCase
 {
     use SilexTestCase;
 
+    public function apiVersions()
+    {
+        return [
+            ['2.0'],
+            ['2.1'],
+        ];
+    }
+
     /**
+     * @dataProvider apiVersions
      * @test
      */
-    public function it_provides_a_record_for_the_user()
+    public function it_provides_a_record_for_the_user($version)
     {
         $response = $this->getApp()->handle(Request::create($a = '/api/v2.1/0000-0002-1825-0097/record'));
 
