@@ -45,7 +45,7 @@ $app->post('/oauth2/token', function (Request $request) {
     ]);
 });
 
-$app->get('/api/v2.0/0000-0002-1825-0097/record', function (Request $request) {
+$record = function (Request $request) {
     $body = <<<'EOT'
 {
   "path": "/0000-0002-1825-0097",
@@ -239,7 +239,12 @@ $app->get('/api/v2.0/0000-0002-1825-0097/record', function (Request $request) {
 EOT;
 
     return new Response($body);
-});
+};
+
+// deprecated
+$app->get('/api/v2.0/0000-0002-1825-0097/record', $record);
+
+$app->get('/api/v2.1/0000-0002-1825-0097/record', $record);
 
 $app->error(function (Throwable $e) {
     if ($e instanceof HttpExceptionInterface) {
