@@ -16,7 +16,7 @@ RUN composer-install
 RUN mkdir -p build && chmod 777 build
 COPY --chown=elife test/ /srv/orcid-dummy/test
 COPY --chown=elife .php_cs phpunit.xml.dist project_tests.sh /srv/orcid-dummy/
-RUN composer-autoload
+RUN composer-post
 
 USER www-data
 CMD ["/bin/bash", "project_tests.sh"]
