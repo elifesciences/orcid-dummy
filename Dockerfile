@@ -1,12 +1,13 @@
 FROM elifesciences/php_cli:d83fc4714914898b0842199578e1cc88d9feab2a
 
 USER elife
-RUN mkdir /srv/orcid-dummy
-WORKDIR /srv/orcid-dummy
-COPY --chown=elife:elife composer.json composer.lock /srv/orcid-dummy/
+ENV PROJECT_FOLDER=/srv/orcid-dummy
+RUN mkdir ${PROJECT_FOLDER} 
+WORKDIR ${PROJECT_FOLDER}
+COPY --chown=elife:elife composer.json composer.lock ${PROJECT_FOLDER}/
 RUN composer-install
-COPY --chown=elife:elife src/ /srv/orcid-dummy/src
-COPY --chown=elife:elife web/ /srv/orcid-dummy/web
+COPY --chown=elife:elife src/ ${PROJECT_FOLDER}/src
+COPY --chown=elife:elife web/ ${PROJECT_FOLDER}/web
 RUN composer-post
 
 USER www-data

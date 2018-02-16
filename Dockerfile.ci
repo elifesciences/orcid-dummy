@@ -14,8 +14,8 @@ RUN ln -s /srv/proofreader-php/bin/proofreader /srv/bin/proofreader
 
 RUN composer-install
 RUN mkdir -p build && chmod 777 build
-COPY --chown=elife test/ /srv/orcid-dummy/test
-COPY --chown=elife .php_cs phpunit.xml.dist project_tests.sh /srv/orcid-dummy/
+COPY --chown=elife test/ ${PROJECT_FOLDER}/test
+COPY --chown=elife .php_cs phpunit.xml.dist project_tests.sh ${PROJECT_FOLDER}/
 RUN composer-post
 
 USER www-data
