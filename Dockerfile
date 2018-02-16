@@ -1,4 +1,4 @@
-FROM elifesciences/php_cli
+FROM elifesciences/php_cli:d83fc4714914898b0842199578e1cc88d9feab2a
 
 USER elife
 RUN mkdir /srv/orcid-dummy
