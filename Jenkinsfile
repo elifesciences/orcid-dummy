@@ -1,11 +1,27 @@
-// TODO: could be separated into `develop` and `master`
-// with merge upon passing tests
 elifeLibrary {
+    def commit
     stage 'Checkout', {
         checkout scm
+        commit = elifeGitRevision()
+    }
+
+    def image
+    stage 'Build image', {
+        dockerBuild 'orcid-dummy', commit
+        image = DockerImage.elifesciences(this, 'orcid-dummy', commit)
     }
 
     stage 'Project tests', {
-        elifeLocalTests "./project_tests.sh", ["build/phpunit.xml"]
+        dockerBuildCi 'orcid-dummy', commit
+        // deprecated: remove when dockerProjectTests doesn't need it anymore
+        sh 'mkdir build/'
+        dockerProjectTests 'orcid-dummy', commit
+    }
+
+    elifeMainlineOnly {
+        stage 'Push image', {
+            image.push()
+            image.tag('latest').push()
+        }
     }
 }
