@@ -18,7 +18,8 @@ COPY --chown=elife .php_cs phpunit.xml.dist project_tests.sh ${PROJECT_FOLDER}/
 RUN composer-post
 RUN mkdir build
 USER root
-RUN chown www-data:www-data build/
+RUN chown www-data:www-data build/ && \
+    touch .php_cs.cache && chown www-data:www-data .php_cs.cache
 
 USER www-data
 CMD ["/bin/bash", "project_tests.sh"]
