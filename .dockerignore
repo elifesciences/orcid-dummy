@@ -1,8 +1,8 @@
 build/
+docker-compose*.yml
 .git/
 .gitignore
 Jenkinsfile
 LICENSE
-pin.sh
 README.md
 vendor/
