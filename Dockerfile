@@ -14,4 +14,5 @@ COPY --chown=elife:elife src/ src/
 
 USER www-data
 EXPOSE 8080
+LABEL org.label-schema.vcs-ref=${image_tag}
 CMD ["php", "-S", "0.0.0.0:8080", "-t", "web/"]
